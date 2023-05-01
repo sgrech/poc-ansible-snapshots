@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars_files:
+    - vars.yml
+
+  vars:
+    snapshot_path: "{{ playbook_dir }}/{{ image_version }}"
+
+  tasks:
+    - name: Create snapshot directory
+      file:
+        path: "{{ snapshot_path }}"
+        state: directory
+
+    - name: Read snapshot variables
+      include_vars:
+        file: vars.yml
+        name: state
+
+    - name: Create a static copy of the snapshot variables
+      copy:
+        content: "{{ state | to_nice_yaml }}"
+        dest: "{{ snapshot_path }}/vars.yml"
+
+    - name: Copy the playbook
+      copy:
+        src: "{{ playbook_dir }}/playbook.yml"
+        dest: "{{ snapshot_path }}/playbook.yml"

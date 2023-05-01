@@ -1,0 +1,5 @@
+container_name: poc-app
+external_port: '8080'
+image_name: poc-app-image
+image_version: '1.0'
+internal_port: '8080'

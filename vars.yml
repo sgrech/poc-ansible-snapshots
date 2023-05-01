@@ -1,0 +1,6 @@
+---
+container_name: "{{ lookup('env', 'CONTAINER_NAME') }}"
+image_name: "{{ lookup('env', 'IMAGE_NAME') }}"
+image_version: "{{ lookup('env', 'IMAGE_VERSION') }}"
+external_port: "{{ lookup('env', 'EXTERNAL_PORT') }}"
+internal_port: "{{ lookup('env', 'INTERNAL_PORT') }}"

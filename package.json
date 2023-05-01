@@ -1,0 +1,15 @@
+{
+  "name": "poc-ansible-snapshots",
+  "version": "1.0.0",
+  "description": "A proof of concept method of creating versioned ansible playbook runs",
+  "main": "index.js",
+  "scripts": {
+    "start": "light-server -s www -p 8080 -w \"*.html, *.css, *.js, *.json\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "light-server": "^2.9.1"
+  }
+}

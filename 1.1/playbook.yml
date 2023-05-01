@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars_files:
+    - vars.yml
+
+  tasks:
+    - name: Instantiate docker container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ image_name }}:{{ image_version }}"
+        state: started
+        restart: yes
+        restart_policy: "always"
+        ports: "{{ external_port }}:{{ internal_port }}"
+
